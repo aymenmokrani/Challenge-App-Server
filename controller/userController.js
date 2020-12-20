@@ -7,6 +7,7 @@ module.exports.createUser = async (req, res, next) => {
     try {
         const user = await User.create({name})
         console.log(user);
+        res.set('Access-Control-Allow-Origin', '*')
         res.send("created")
     } catch (error) {
         if(error.code === 11000) res.send("User already exists")
