@@ -6,7 +6,10 @@ router.get('/', (req, res) => {
     res.send('we in useres')
 })
 
-router.get('/create', createUser)
+router.post('/create', (req, res, next) => {
+    res.set('Access-Control-Allow-Origin', '*')
+    next()
+}, createUser)
 
 
 module.exports = router

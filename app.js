@@ -6,6 +6,9 @@ const usersRoutes = require('./routes/userRoutes')
 const mongoose = require('mongoose')
 
 
+//midlleWares
+app.use(express.json())
+
 // routes
 app.use('/api', apiRoutes)
 app.use('/users', usersRoutes)
