@@ -10,7 +10,7 @@ app.use('/api', apiRoutes)
 
 
 // MongoDb Connection
-mongoose.connect(MONGODB_URI, {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/serverDB', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: true
