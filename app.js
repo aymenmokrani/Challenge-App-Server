@@ -2,11 +2,13 @@ const express = require('express')
 const app = express()
 const PORT = process.env.PORT || 4000
 const apiRoutes = require('./routes/apiRoutes')
+const usersRoutes = require('./routes/userRoutes')
 const mongoose = require('mongoose')
 
 
 // routes
 app.use('/api', apiRoutes)
+app.use('/users', usersRoutes)
 
 
 // MongoDb Connection
