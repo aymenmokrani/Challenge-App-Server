@@ -12,9 +12,16 @@ module.exports.createUser = async (req, res, next) => {
         if(error.code === 11000) res.send("User already exists")
         res.status(400).send(error)
     }
-    
-    
+}
 
+module.exports.getAllUsers = async (req, res, next) => {
+    try {
+        const users = await User.find({})  
+        res.send(users)  
+    } catch (error) {
+        res.status(400).send(error.message)
+    }
+    
 
 }
 
