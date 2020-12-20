@@ -10,7 +10,7 @@ module.exports.createUser = async (req, res, next) => {
         res.send("created")
     } catch (error) {
         if(error.code === 11000) res.send("User already exists")
-        res.send(error)
+        res.status(400).send(error)
     }
     
     
