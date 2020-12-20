@@ -20,8 +20,15 @@ module.exports.getAllUsers = async (req, res, next) => {
         res.send(users)  
     } catch (error) {
         res.status(400).send(error.message)
-    }
-    
+    }    
+}
 
+module.exports.deleteAllUsers = async (req, res, next) => {
+    try {
+        await User.deleteMany({})
+        res.send("all documents are deleted")
+    } catch (error) {
+        res.status(400).send(error.message)
+    }
 }
 
