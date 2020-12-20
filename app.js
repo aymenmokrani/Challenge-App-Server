@@ -4,11 +4,11 @@ const PORT = process.env.PORT || 4000
 const apiRoutes = require('./routes/apiRoutes')
 const usersRoutes = require('./routes/userRoutes')
 const mongoose = require('mongoose')
-
+const cors = require('cors')
 
 //midlleWares
 app.use(express.json())
-
+app.use(cors())
 // routes
 app.use('/api', apiRoutes)
 app.use('/users', usersRoutes)
