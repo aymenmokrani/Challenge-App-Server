@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express()
 const PORT = process.env.PORT || 4000
-const apiRoutes = require('./routes/apiRoutes')
 const usersRoutes = require('./routes/userRoutes')
 const mongoose = require('mongoose')
 const cors = require('cors')
@@ -10,7 +9,6 @@ const cors = require('cors')
 app.use(express.json())
 app.use(cors())
 // routes
-app.use('/api', apiRoutes)
 app.use('/users', usersRoutes)
 
 
@@ -27,7 +25,8 @@ mongoose.connection.once('open', () => {
 
 
 app.get('/', (req, res) => {
-    res.send("updated routes :)")
+    console.log(req.query);
+    res.send("Welcome to the server mate :)")
 })
 
 
